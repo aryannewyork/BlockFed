@@ -1,0 +1,57 @@
+Problems with centralized FL
+	- Vulnerability to attacks
+	- Lack of credibility
+	- Difficulty in calculating rewards
+Blockchain is identified as a potential solution to above mentioned problems
+BLOCK-FED -- Blockchain empowered Federated Learning
+Data Island problem (Each client has data but clients are disconnected amongst themselves) -- don't want to share data due to privacy reasons -- this hinders obtaining rich data to train high accuracy models. Federated Learning allows model training without data leaving client's devices.
+BlockFed ensures data privacy, model security, computation auditability, etc.
+BlockFed is used in Industrial Internet, intelligent transportation, smart healthcare, and wireless network infrastructure.
+
+Challenges with FL:
+	1. Lack of incentive mechanism -- Contributing to FL (as data provider) is a privacy concerning task, so there is a need for incentives to motivate users to participate in FL. The incentive mechanism is rewards the clients who contribute more using their local data. Therefore it is essential to evaluate the contributions of different data providers to calculate an appropriate and reasonable distribution of profits. Designing incentives for FL based on client contributions, (quality vs quantity of data provided).
+	2. Statistical Heterogenity -- Solution is FedProx averaging, which guarantees convergence. Problems still exist with regards to performance.
+	
+	
+
+1. A critical problem in FL is motivating different parties to participate in the learning process. In BlockFed, parties with abundant data and computation resources can get more benefits than those with limited resources because of the significant contributions to model training and consensus. As a result, BlockFed can motivate the large parties to actively share their local updates and the small ones to compete.
+
+Most solutions are still designed based on token rewards, which does not reflect well the values of data and computation resources. Furthermore it is not easy to choose a particular type of token, eg. Bitcoin, ethers, etc. because of fluctuating prices and system reliability concerns.
+
+2. Selection of suitable clients -- Client should have abundant resources (CPU, battery, etc.), stable communication network, and high reputation. Checking the first two can be done by sending a resource query (like a ping) and assigning a task to compute on the client and calculating how long it takes to compute it. Reputation can be assesed by giving client's repuation scores based on past history of the client. 
+Access to reputation information is provided to all clients of the FL system through a front-end that uses Ethereum’s public blockchain and smart contract technology to calculate and determine trusted aggregations of reported reputation scores. Next, they report the hash of the reputation score to the on-chain smart contract. The smart contract then aggregates and calculates the reputation of each client and cloud server for client selection
+
+3. Consensus mechanism for model checking -- Proof of FL (PoFL) -- this uses learning tasks instead of hash puzzles to achieve consensus, making the consensus mechanism energy efficient, Proof of Quality of Training (PoQ). PoS is also used.
+Committee consensus mechanism is also proposed -- A small number of honest nodes are selected to validate the model updates and run the consensus mechanism, due to small scale of committee this mechanism is high performance and honest nodes are incentivized to behave honestly because high rewards will be given only on honest behavior.
+DAG Consensus is also proposed.
+
+4. Model SecuritY -- Byzantine and Poissioning attacks
+- Poisionning attacks -- Random (Reduce the accuracy of the Model), Targetted attacks (get the model to output adversarial outcome, decided by attacker).
+- Identification of malicious clients needs to be done, either by consensus mechanism or otherwise.
+
+5. Data Privacy -- Inference Attack -- White-box attacks (full access to FL Model) and Black-boc attacks (Only FL Model can be queried)
+- Include, tracking and reconstruction 
+
+
+///////////////
+
+Lazy Client Identification -- 
+Open Enclave library -- Intel SGX (trusted execution env) -- solve a problem in a trusted exec env
+Hyperparameter protection (so that no client can steal any other client's hyperparams).
+Incentive can used to imporve quality, aggreagtion.
+- Member inference attacks.
+
+
+FUTURE DIRECTIONS:-
+1. Optimizing learning params, a fundamental problem in FL is establishing the criteria for the training termination. For now, a pre-defined threshold is used, but that can change as the model is changing constanly. No universal algorithm exists that can explain how the parameters change towards the end of training. Simply defining stopping criterion in terms of threshold in smart contract won't work.
+
+IDEA -- Hierarchical Model Aggregation (instead of single point aggregation by server or smart contract) n client send data to n-k clients for aggregation and then n-k send it to n-2k clients etc.. Basically Distributed aggregation system.
+ -- Resource checking protocol(query message and training problem formulation).
+ -- Can we do Reverse-poisoinning (like in Routers, used to solve count to infinity problem) to prevent Inference Attacks. Like give each client poisoined model (distinct model) so that within client collusion can be eliminated.
+ 
+ -- Comparison papers, implement alreadt proposed papers
+ 
+ 
+ I NEED TO STUDY:
+ 1. Data rewards (in incentive)
+ 2. Lazy Clients (what are these ?)
