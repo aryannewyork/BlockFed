@@ -11,8 +11,11 @@ Read the Research Proposal and BlockFed Notes to get an idea about the thought p
 
 ## Deployment
 
-To deploy this project run the following on Ubuntu 22.04 LTS (Linux),
-make sure to install ngrok and ganache-cli to continue
+To deploy this project run the following on Ubuntu 22.04 LTS (Linux)
+
+- Make sure to install ngrok and ganache-cli to continue
+- Upload the dataset *swarm-aligned* and smart contract *Main.sol* to the drive (or local storage)
+- Add the correct links of dataset and smart contract in the ipynb
 
 ```bash
     ganache-cli -d
@@ -28,3 +31,9 @@ ngrok http 8545
 
 ![image](https://github.com/aryannewyork/BlockFed/assets/79625246/8376272b-24ad-47fb-81be-72a8e4827f98)
 
+- After running the ganache server tunneled through ngrok, paste the *Forwarding* link in **SmartContractInteraction.ipynb** It should look somethinglike this,
+
+![image](https://github.com/aryannewyork/BlockFed/assets/79625246/d51c8c8a-c85d-4bfc-a644-519df119e82e)
+
+- Download the dataset from https://archive.ics.uci.edu/dataset/524/swarm+behaviour 
+- The dataset has been preprocessed, here is the preprocessed dataset [link](https://drive.google.com/drive/folders/1sJ7UoPXQ7KbI1SZ4J53Nm6QdIoNxL339?usp=drive_link)
