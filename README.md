@@ -37,3 +37,5 @@ ngrok http 8545
 
 - Download the dataset from https://archive.ics.uci.edu/dataset/524/swarm+behaviour 
 - The dataset has been preprocessed, here is the preprocessed dataset [link](https://drive.google.com/drive/folders/1sJ7UoPXQ7KbI1SZ4J53Nm6QdIoNxL339?usp=drive_link)
+
+- After setting up the files and servers, run the FL.ipynb file on google colab and make sure to wait after running the first cell until the environment restarts. The exit() statement is put intentionally to circumvent versioning problems with web3.py library. After that go on with regular implementation in sequence in notebook. Number of accounts can be adjusted from *SmartContractInteraction.ipynb* by changing the **NUM_ACCOUNTS** variable. FL Model can be adjusted and hyperparameters can be tuned from *flutils.ipynb* and *FL.ipynb*
